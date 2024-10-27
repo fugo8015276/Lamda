@@ -2,15 +2,14 @@ package com.sample;
 
 public class Factory {
 	public static Sample create() {
-		return new Factory().new InnerSample();
-	}
-	
-//	下記のInnserクラスは、privateクラスのため、他クラスから使えないが、このクラス内ならどこでも呼び出せる。
-	private class InnerSample implements Sample{
-		@Override
-		public void execute() {
-			System.out.println("Inner Class");
-		}
+//		Sample型のインタフェースでもインスタンス化可能。またその中でメソッド等を定義して、これをMainクラスで使うことができる。
+//		無名クラスとして定義
+		return new Sample() {
+			@Override
+			public void execute() {
+				System.out.println("test");
+			}
+		};
 	}
 
 }
