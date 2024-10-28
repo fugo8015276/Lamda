@@ -1,15 +1,12 @@
-import com.sample.Factory;
-import com.sample.Sample;
+import com.sample.Test;
 
 public class Main {
 
 	public static void main(String[] args) {
-//		Sample sample = new SampleImpl();
-		//SampleImplへの参照をSample形で扱っている。
-		
-		Sample sample = Factory.create();
-//		Factoryクラスのcreateメソッドで、Implの内容がSample形で返却される。これで情報隠ぺいができるようになる。
-		sample.execute();
+		Test test = new Test();
+		test.process(() -> {
+				System.out.println("Hello with Lamda");
+		});
 	}
 
 }
