@@ -1,5 +1,7 @@
 package com.sample;
 
+import java.util.function.Consumer;
+
 public class Item {
 	private String id;
 	private String name;
@@ -27,6 +29,19 @@ public class Item {
 		this.price = price;
 		return this;
 
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", discription=" + discription + ", price=" + price + "]";
+	}
+
+	public static void save(Consumer<Item> con) {
+		Item item = new Item();
+		con.accept(item);
+		System.out.println("save:" + item);
 	}
 
 }
